@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Sign-Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: teal;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, turquoise, #667eea);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #008080;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #008080;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: normal;
+            color: #7f8c8d;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: teal;
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-text {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏡 Join Our Real Estate Network</h1>
+            <p>Connect with top properties and expert agents</p>
+        </div>
+
+        <form id="signupForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name <span class="required">*</span></label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name <span class="required">*</span></label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="preferredContact">Preferred Contact Method</label>
+                    <select id="preferredContact" name="preferredContact">
+                        <option value="email">Email</option>
+                        <option value="phone">Phone</option>
+                        <option value="text">Text Message</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Current Location/Area of Interest</label>
+                <input type="text" id="location" name="location" placeholder="City, State">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="interest">I'm interested in:</label>
+                    <select id="interest" name="interest">
+                        <option value="buying">Buying a Home</option>
+                        <option value="selling">Selling a Home</option>
+                        <option value="renting">Renting</option>
+                        <option value="investing">Real Estate Investment</option>
+                        <option value="both">Both Buying & Selling</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="timeline">Timeline</label>
+                    <select id="timeline" name="timeline">
+                        <option value="immediate">Immediately</option>
+                        <option value="3months">Within 3 months</option>
+                        <option value="6months">Within 6 months</option>
+                        <option value="1year">Within 1 year</option>
+                        <option value="research">Just researching</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Budget Range (Optional)</label>
+                <select id="budget" name="budget">
+                    <option value="">Select budget range</option>
+                    <option value="under100k">Under $100,000</option>
+                    <option value="100k-250k">$100,000 - $250,000</option>
+                    <option value="250k-500k">$250,000 - $500,000</option>
+                    <option value="500k-750k">$500,000 - $750,000</option>
+                    <option value="750k-1m">$750,000 - $1,000,000</option>
+                    <option value="over1m">Over $1,000,000</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="propertyType">Property Type Interest</label>
+                <select id="propertyType" name="propertyType">
+                    <option value="single-family">Single Family Home</option>
+                    <option value="condo">Condominium</option>
+                    <option value="townhouse">Townhouse</option>
+                    <option value="multifamily">Multi-family</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="land">Land/Lots</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="additionalInfo">Additional Information or Questions</label>
+                <textarea id="additionalInfo" name="additionalInfo" placeholder="Tell us about your specific needs, preferences, or any questions you have..."></textarea>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="newsletter" name="newsletter" checked>
+                <label for="newsletter">I'd like to receive market updates and property listings via email</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the Terms of Service and Privacy Policy <span class="required">*</span></label>
+            </div>
+
+            <button type="submit" class="submit-btn">Get Started Today</button>
+        </form>
+
+        <div class="info-text">
+            <p>Your information is secure and will only be used to connect you with qualified real estate professionals.</p>
+        </div>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Simple form validation
+            if (!data.firstName || !data.lastName || !data.email || !data.phone) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            if (!data.terms) {
+                alert('Please agree to the Terms of Service and Privacy Policy.');
+                return;
+            }
+            
+            // Simulate form submission
+            const button = event.target.querySelector('.submit-btn');
+            button.textContent = 'Processing...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for signing up! A real estate professional will contact you within 24 hours.');
+                button.textContent = 'Get Started Today';
+                button.disabled = false;
+                event.target.reset();
+            }, 2000);
+        }
+        
+        // Add some interactive effects
+        document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('focus', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            field.addEventListener('blur', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

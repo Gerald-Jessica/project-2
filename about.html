@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> about hg</title>
+    <link rel="stylesheet" href="./Assets/font-awesome/css/all.min.css">
+</head>
+<style>
+    *{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+/* header */
+header{
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: teal;
+    backdrop-filter: blur(10px);
+    padding: 1.3rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1{
+margin-left: -6%;
+color: white;
+display: block;
+}
+.hg{
+    width: 17%;
+    height: 50px;
+    object-fit: contain;
+    position: relative;
+    display: none;
+
+}
+.navbars{
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    flex-direction: row;
+}
+.link{
+    text-decoration: none;
+color: white;
+font-weight: bolder;
+}
+.icons{
+    background: none;
+border: none;
+font-size: 2rem;
+display: none;
+cursor: pointer;
+position: relative;
+}
+.users{
+    background: none;
+    border: none;
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+}
+.icons span{
+    
+    color: white;
+}
+.users p {
+    color: white;
+
+}
+
+@media screen and (max-width:767px) {
+    .hg{
+        position: relative;
+        right: 20px;
+        display: block;
+
+    }
+    .navbars{
+        position: fixed;
+        flex-direction: column;
+         background-color: white;
+         top: 80px;
+         width: 50%;
+         height: 50vh;
+         right: 0%;
+          justify-content: flex-start;
+        gap: 20px;
+        padding-bottom: 20px;
+        transform: translateY(-200%);
+        
+    }
+    h1{
+        display: none;
+    }
+    header{
+        height: 60px;
+    }
+    .link{
+        margin-right: 15% !important;
+gap: 30px !important;
+color: teal !important;
+
+    }
+    .shownav{
+         transform: translateY(0%) !important;
+    }
+    .icons {
+        display: block;
+       position: relative;
+       left: 36%;
+    }
+    .users{
+        display: block;
+        position: relative;
+        left: 9%;
+    }
+}
+
+/* body */
+.banner{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+}
+.bannertext {
+position: absolute;
+    top: 45%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+video{
+    width: 100%;
+    height: 75vh;
+    object-fit: cover;
+display: block;
+}
+
+#search{
+    position: absolute;
+    top: 62%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 60%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: transparent;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.search-btn{
+    background: none;
+    border: none;
+    color: white;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    padding: 0 20px;
+    display: none;
+position: absolute;
+    right: 60px;
+    top: 60%;
+    transform: translateY(-50%);
+}
+.search-btn:hover{
+    background-color: white;
+    color: teal;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+#search::placeholder{
+    color: teal;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 767px) {
+    .banner{
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        
+    }
+    video{
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;    
+        object-fit: cover;
+    }
+    #search{
+        width: 80%;
+        height: 50px;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #008080 0%, #20b2aa 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        /* header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        } */
+
+
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 4rem 0;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero  h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        /* About Content */
+        .about-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: teal;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #40e0d0;
+            display: block;
+        }
+
+        .stat-label {
+            color: white;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Team Section */
+        .team {
+            background: turquoise;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .team h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: teal;
+            margin-bottom: 2rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #20b2aa 0%, teal 100%);
+            color: white;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid white;
+        }
+
+        .team-member h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Values Section */
+        .values {
+            background: teal;
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .values h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .value-item h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-item p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            color: teal;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #20b2aa 0%, teal 100%);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 767px) {
+
+            .hero h1 {
+                font-size: 2rem;
+                display: block;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content,
+            .team,
+            .values,
+            .cta {
+                padding: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-text h2,
+            .team h2,
+            .values h2,
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+/* footer */
+        
+  
+  .footer {
+    position: relative;
+    height: 500px;
+    background: teal;
+    background-size: cover;
+    margin-top: 20px;
+    /* overflow: hidden; */
+  }
+  
+  .footer-logos {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .footer-logos img {
+    width: 50px;
+    /* height: auto; */
+    object-fit: contain;
+    /* margin-top: 10px; */
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+  }
+  
+  .footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: white;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 1.1rem;
+  }
+  
+  .footer-column form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-column input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: block;
+  }
+  
+  .footer-column button {
+    padding: 10px;
+    background-color:turquoise;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .Contact {
+    display: block;
+    font-size: 1.3rem;
+    color: white;
+  }
+  .rights {
+    display: flex;
+    font-size: 1.3rem;
+    align-items: center;
+    gap: 6px;
+    color: #ffffff;
+  }
+  .rights i{
+    color: white;
+    font-size: 1.2rem;
+  }
+  .for{
+    display: block;
+  }
+    .para{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* margin: 10px ; */
+    flex-wrap: wrap;
+    }
+    .logo-name{ 
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+  @media screen and ( max-width: 767px){
+.footer-logos {
+    display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
+.footer-logos .para:nth-child(5) {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+.footer-logos img {
+    width: 80px;
+    height: auto;
+    margin-top: 10px;
+  }
+.footer-content {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+.footer{
+    height: auto;
+    padding: 20px;
+  }
+  .footer-column form{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    
+  }
+  .footer-column input[type="email"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+    .footer-column button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+}
+
+    </style>
+<body>
+        <!-- header section starts -->
+
+        <header>
+            <h1>Heaven Gate</h1>
+            <img src="./Assets/images/logo6.jpeg" alt="" class="hg">
+    <nav class="navbars">
+        <a href="./index.html" class="link">Home</a>
+        <a href="./about.html" class="link">About</a>
+        <a href="./property.html" class="link">Properties</a>
+        <a href="./Contact.html"class="link">Contact</a>
+        <a href="./Login.html" class="link">Login</a>
+    
+    </nav>
+    
+    <div class="icons">
+    <span><i class="fas fa-bars"></i></span>
+    </div>
+    <div class="users">
+        <p><i class="fas fa-user"></i></p>
+    </div>
+        </header>
+    
+    <main class="banner">
+        <video src="./Assets/video/video1.mp4" autoplay muted loop></video>
+        <div class="bannertext">
+            Experience living without limits.<br>Step into a world of sophistication and 
+                indulgence.<br> At Heaven Gate estate, we present exclusive luxury
+            residence designed for those who wants the best. 
+        </div>
+        <input type="search" name="search" id="search" placeholder="Search for properties...">
+        <button class="search-btn">Search</button>
+    </main>
+
+    <!-- About us -->
+
+    <div class="container">
+        <section class="hero">
+            <h1 class="Gate">About Heaven Gate </h1>
+            <p>Your trusted partner in finding the perfect home. We've been connecting families with their dream properties for over two decades.</p>
+        </section>
+
+        <section class="about-content">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2025, Heaven Gate has grown from a small family business into one of the region's most respected real estate agencies. Our journey began with a simple mission: to make the process of buying and selling homes as smooth and stress-free as possible.</p>
+                    <p>Over the years, we've built lasting relationships with thousands of clients, helping them navigate one of life's most important decisions. Our success is measured not just in transactions, but in the smiles on our clients' faces when they receive their keys.</p>
+                    <p>Today, we combine traditional values with cutting-edge technology to deliver an unparalleled real estate experience. Whether you're a first-time buyer or a seasoned investor, we're here to guide you every step of the way.</p>
+                </div>
+                <div class="about-image">
+                    <img src="./Assets/images/house12.jpeg" alt="Modern home exterior">
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-item">
+                <span class="stat-number">2,500+</span>
+                <span class="stat-label">Happy Families</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">$2.8B</span>
+                <span class="stat-label">Total Sales Volume</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">10</span>
+                <span class="stat-label">Years of Experience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Client Satisfaction</span>
+            </div>
+        </section>
+
+        <section class="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="./Assets/images/client1.jpeg" alt="Michael Johnson">
+                    <h3>Gerald Jessica</h3>
+                    <p>CEO & Founder</p>
+                </div>
+                <div class="team-member">
+                    <img src="./Assets/images/client2.jpeg" alt="Sarah Davis">
+                    <h3>Sarah Davis</h3>
+                    <p>Senior Real Estate Agent</p>
+                </div>
+                <div class="team-member">
+                    <img src="./Assets/images/client3.jpeg" alt="David Wilson">
+                    <h3>David Wilson</h3>
+                    <p>Property Investment Specialist</p>
+                </div>
+                <div class="team-member">
+                    <img src="./Assets/images/client4.jpeg" alt="Emma Thompson">
+                    <h3>Emma Thompson</h3>
+                    <p>Client Relations Manager</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="values">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-house-user"></i></div>
+                    <h3>Integrity</h3>
+                    <p>We believe in honest, transparent communication and ethical business practices in every transaction.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Innovation</h3>
+                    <p>We leverage the latest technology and market insights to provide our clients with a competitive advantage.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Partnership</h3>
+                    <p>We view our clients as partners, working together to achieve their real estate goals and dreams.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to Find Your Dream Home?</h2>
+            <p>Let our experienced team guide you through your real estate journey. Contact us today for a personalized consultation.</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </section>
+    </div>
+
+    <!-- footer -->
+
+  <footer class="footer">
+    <div class="footer-top">
+        <div class="skyline">
+      <div class="footer-logos">
+        <div class="para">
+            <img src="./Assets/images/logo1.jpeg" alt="">
+            <span class="logo-name">Paramount Paint Service</span>
+        </div>
+        <div class="para">
+            <img src="./Assets/images/logo2.jpeg" alt="">
+            <span class="logo-name">Adore Home</span>
+        </div>
+        <div class="para">
+            <img src="./Assets/images/logo3.jpeg" alt=" *">
+            <span class="logo-name">Ironwood Apartment</span>
+        </div>
+        <div class="para">
+            <img src="./Assets/images/logo4.jpeg" alt="">
+            <span class="logo-name">Home Service</span>
+        </div>
+        <div class="para">
+            <img src="./Assets/images/logo5.jpeg" alt="">
+            <span class="logo-name">Repairs</span>
+</div>
+        </div>
+      </div>
+
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Contact Info</h3>
+          <p class="Contact">3651 Gerald Ave, Coconut Grove,<br> Memphis West, AL 12864</p>
+          <p class="Contact" >Phone: 123-456-7890</p>
+          <p class="Contact">Email: heavengate@gmail.com</p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Property Types</h3>
+          <ul>
+            <li>Luxury</li>
+            <li>Modern</li>
+            <li>Ultra Luxury</li>
+            <li>Cozy</li>
+            <li>Apartment</li>
+            <li>Condominiums</li>
+            <li>Family House</li>
+            <li>Villa</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="for">For More Info</h3>
+          <form>
+            <input type="email" placeholder="Your email address">
+            <button type="submit">Sign up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="rights"><i class="fas fa-copyright"></i> 2025. All rights reserved</p>
+    </div>
+
+    
+    <div class="overlay"></div>
+  </footer>
+    <script src="./Assets/js/hg.js"></script>
+</body>
+</html>

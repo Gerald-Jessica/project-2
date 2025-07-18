@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings - DreamHome Realty</title>
+    <link rel="stylesheet" href="./Assets/font-awesome/css/all.min.css">
+    <style>
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000 0%, #008080 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* header */
+header{
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: teal;
+    padding: 1.3rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1{
+margin-left: -6%;
+color: white;
+display: block;
+}
+.hg{
+    width: 17%;
+    height: 50px;
+    object-fit: contain;
+    position: relative;
+    display: none;
+
+}
+.navbars{
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    flex-direction: row;
+    transition: 0.3s ease-in-out;
+}
+.link{
+    text-decoration: none;
+color: white;
+font-weight: bolder;
+}
+.icons{
+    background: none;
+border: none;
+font-size: 2rem;
+display: none;
+cursor: pointer;
+position: relative;
+
+}
+.users{
+    background: none;
+    border: none;
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+}
+.icons span{
+    
+    color: white;
+}
+.users p {
+    color: white;
+
+}
+
+@media screen and (max-width:800px) {
+    .hg{
+        position: relative;
+        right: 20px;
+        display: block;
+
+    }
+    .navbars{
+        position: fixed;
+        flex-direction: column;
+         background-color: white;
+         top: 80px;
+         width: 50%;
+         height: 50vh;
+         right: 0%;
+          justify-content: flex-start;
+        gap: 20px;
+        padding-bottom: 20px;
+        transform: translateY(-200%);
+        
+    }
+    h1{
+        display: none;
+    }
+    header{
+        height: 60px;
+        
+    }
+    .link{
+        margin-right: 15% !important;
+gap: 30px !important;
+color: teal !important;
+
+    }
+    .shownav{
+         transform: translateY(0%) !important;
+    }
+    .icons {
+        display: block;
+       position: relative;
+       left: auto;
+         right: -190px;
+    }
+    .users{
+        display: block;
+        position: relative;
+        left: 9%;
+    }
+}
+/* body */
+        .banner{
+    position: relative;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    
+}
+.bannertext {
+position: absolute;
+    top: 45%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: wheat;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+video{
+    width: 100%;
+    height: 75vh;
+    object-fit: cover;
+display: block;
+}
+
+#search{
+    position: absolute;
+    top: 62%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 60%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: transparent;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.search-btn{
+    background: none;
+    border: none;
+    color: white;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 20px;
+    display: none;
+position: absolute;
+    right: 60px;
+    top: 60%;
+    transform: translateY(-50%);
+}
+.search-btn:hover{
+    background-color: white;
+    color: teal;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+#search::placeholder{
+    color: teal;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 767px) {
+    .banner{
+        height: 600px;
+        width: 455px;
+        position: relative;
+        overflow: hidden;
+        
+        
+    }
+    .bannertext{
+    font-size: 1rem;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        /* padding: 0 10px; */
+        width: 90%;
+    }
+    video{
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;    
+        object-fit: cover;
+    }
+    #search{
+        width: 60%;
+        height: 45px;
+        top: 60%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        font-size: 1rem;
+    }
+    .search-btn{
+        display: block;
+        top: 60%;
+        right: 11%;
+        font-size: 1rem;
+    }
+}
+
+       
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .property-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .property-image.hover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .image-container:hover .property-image:not(.hover-image) {
+            opacity: 0;
+        }
+
+        .image-container:hover .hover-image {
+            opacity: 1;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .status-badge.for-sale {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .status-badge.for-rent {
+            background: #3498db;
+            color: white;
+        }
+
+        .status-badge.sold {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1em;
+            z-index: 10;
+        }
+
+        .property-content {
+            padding: 25px;
+        }
+
+        .property-title {
+            color: #2c3e50;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .property-address {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .property-specs {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .spec {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #34495e;
+            font-size: 0.9em;
+        }
+
+        .property-description {
+            color: #7f8c8d;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .email-agent-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #000 0%, #008080 100%);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .email-agent-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #008080 0%, #20B2AA 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: turquoise;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-property-image {
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            margin: 0 auto 20px;
+        }
+        .modal-property-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .property-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #008080;
+        }
+
+        .detail-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .agent-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .agent-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #008080, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #008080;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #008080 0%, #20B2AA 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .property-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+        }
+
+        /* footer */
+        
+  
+  .footer {
+    position: relative;
+    height: 500px;
+    background: linear-gradient(135deg, #000 0%, #008080 100%);
+    background-size: cover;
+    margin-top: 20px;
+    /* overflow: hidden; */
+  }
+  
+  .footer-logos {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .footer-logos img {
+    width: 50px;
+    /* height: auto; */
+    object-fit: contain;
+    /* margin-top: 10px; */
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+  }
+  
+  .footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: white;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 1.1rem;
+  }
+  
+  .footer-column form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-column input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: block;
+  }
+  
+  .footer-column button {
+    padding: 10px;
+    background-color:turquoise;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .Contact {
+    display: block;
+    font-size: 1.3rem;
+    color: white;
+  }
+  .rights {
+    display: flex;
+    font-size: 1.3rem;
+    align-items: center;
+    gap: 6px;
+    color: #ffffff;
+  }
+  .rights i{
+    color: white;
+    font-size: 1.2rem;
+  }
+  .for{
+    display: block;
+  }
+    .para{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* margin: 10px ; */
+    flex-wrap: wrap;
+    }
+    .logo-name{ 
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+  @media screen and ( max-width: 767px){
+.footer-logos {
+    display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
+.footer-logos .para:nth-child(5) {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+.footer-logos img {
+    width: 80px;
+    height: auto;
+    margin-top: 10px;
+  }
+.footer-content {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+.footer{
+    height: auto;
+    padding: 20px;
+  }
+  .footer-column form{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    
+  }
+  .footer-column input[type="email"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+    .footer-column button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Haven Gate</h1>
+        <img src="./Assets/images/logo6.jpeg" alt="" class="hg">
+<nav class="navbars">
+    <a href="./index.html" class="link">Home</a>
+    <a href="./about.html" class="link">About</a>
+    <a href="./properties.html" class="link">Properties</a>
+    <a href="./Contact.html"class="link">Contact</a>
+    <a href="./Login.html" class="link">Login</a>
+
+</nav>
+
+<div class="icons">
+<span><i class="fas fa-bars"></i></span>
+</div>
+<div class="users">
+    <a href="./signup.html">
+    <p><i class="fas fa-user"></i></p></a>
+    
+</div>
+    </header>
+    <!-- banner -->
+    <main class="banner">
+        <video src="./Assets/video/video1.mp4" autoplay muted loop></video>
+        <div class="bannertext">
+            Get Your Homes, Investments And Landed Properties @ Haven's Gate <br> Affordable Price.
+
+        </div>
+        <input type="search" name="search" id="search" placeholder="Search for properties...">
+        <button class="search-btn">Search</button>
+    </main>
+    <div class="header">
+        <h1> Premium Properties</h1>
+        <p>Discover your dream home from our exclusive collection</p>
+    </div>
+
+    <div class="properties-grid" id="propertiesGrid">
+        
+    </div>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <div class="modal-property-image">
+                    <img id="modalImage" src="" alt="Property Image">
+                </div>
+                <h2 id="modalTitle">Property Details</h2>
+                <p id="modalPrice">$0</p>
+            </div>
+            <div class="modal-body">
+                <div class="property-details" id="propertyDetails">
+                    <!-- Property details will be populated here -->
+                </div>
+                
+                <div class="agent-info">
+                    <div class="agent-header">
+                        <div class="agent-avatar" id="agentAvatar">A</div>
+                        <div>
+                            <h3 id="agentName">Agent Name</h3>
+                            <p id="agentContact">Contact Info</p>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" onsubmit="sendEmail(event)">
+                        <div class="form-group">
+                            <label for="clientName">Your Name</label>
+                            <input type="text" id="clientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientEmail">Your Email</label>
+                            <input type="email" id="clientEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientPhone">Your Phone</label>
+                            <input type="tel" id="clientPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="I'm interested in this property..."></textarea>
+                        </div>
+                        <button type="submit" class="send-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="skyline">
+          <div class="footer-logos">
+            <div class="para">
+                <img src="./Assets/images/logo1.jpeg" alt="">
+                <span class="logo-name">Paramount Paint Service</span>
+            </div>
+            <div class="para">
+                <img src="./Assets/images/logo2.jpeg" alt="">
+                <span class="logo-name">Adore Home</span>
+            </div>
+            <div class="para">
+                <img src="./Assets/images/logo3.jpeg" alt=" *">
+                <span class="logo-name">Ironwood Apartment</span>
+            </div>
+            <div class="para">
+                <img src="./Assets/images/logo4.jpeg" alt="">
+                <span class="logo-name">Home Service</span>
+            </div>
+            <div class="para">
+                <img src="./Assets/images/logo5.jpeg" alt="">
+                <span class="logo-name">Repairs</span>
+    </div>
+            </div>
+          </div>
+    
+          <div class="footer-content">
+            <div class="footer-column">
+              <h3>Contact Info</h3>
+              <p class="Contact">3651 Gerald Ave, Coconut Grove,<br> Memphis West, AL 12864</p>
+              <p class="Contact" >Phone: 123-456-7890</p>
+              <p class="Contact">Email: heavengate@gmail.com</p>
+            </div>
+    
+            <div class="footer-column">
+              <h3>Property Types</h3>
+              <ul>
+                <li>Luxury</li>
+                <li>Modern</li>
+                <li>Ultra Luxury</li>
+                <li>Cozy</li>
+                <li>Apartment</li>
+                <li>Condominiums</li>
+                <li>Family House</li>
+                <li>Villa</li>
+              </ul>
+            </div>
+    
+            <div class="footer-column">
+              <h3 class="for">For More Info</h3>
+              <form>
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Sign up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    
+        <div class="footer-bottom">
+          <p class="rights"><i class="fas fa-copyright"></i> 2025. All rights reserved</p>
+        </div>
+    
+        
+        <div class="overlay"></div>
+      </footer>
+
+            <script src="./Assets/js/hg.js"></script>
+        </body>
+        </html>
+            
