@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Login</title>
+    <link rel="stylesheet" href="../../Assets/font-awesome/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -290,10 +291,38 @@
                 flex-direction: column;
             }
         }
+
+          .home-arrow {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 20px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+        }
+
+        .home-arrow:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .home-arrow:active {
+            transform: scale(0.95);
+        }
     </style>
 </head>
 <body>
-
+     <button class="home-arrow" onclick="goHome()">
+        <i class="fas fa-arrow-left"></i>
+    </button>
     <div class="login-container">
         <div class="login-header">
             <div class="logo">🏠</div>
@@ -351,6 +380,9 @@
     </div>
 
     <script>
+         function goHome() {
+            window.location.href = '../../index.html';
+        }
         function togglePassword() {
             const passwordInput = document.getElementById('password');
             const toggleBtn = document.querySelector('.password-toggle');

@@ -16,7 +16,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #000 0%, #008080 100%);
             min-height: 100vh;
-            padding: 20px;
+            /* padding: 0px; */
         }
 
         /* header */
@@ -35,12 +35,12 @@ header{
 }
 
 h1{
-margin-left: -6%;
+margin-left: -6%; 
 color: white;
 display: block;
 }
 .hg{
-    width: 17%;
+    width: 100px;
     height: 50px;
     object-fit: contain;
     position: relative;
@@ -79,7 +79,7 @@ position: relative;
     
     color: white;
 }
-.users p {
+.users a {
     color: white;
 
 }
@@ -124,13 +124,12 @@ color: teal !important;
     .icons {
         display: block;
        position: relative;
-       left: auto;
-         right: -190px;
+       left: 36%;
     }
     .users{
         display: block;
         position: relative;
-        left: 9%;
+        left: 8%;
     }
 }
 /* body */
@@ -143,6 +142,9 @@ color: teal !important;
     width: 100%;
     z-index: 1;
     
+}
+.banner-vid{
+    margin-top: 85px;
 }
 .bannertext {
 position: absolute;
@@ -159,7 +161,8 @@ video{
     width: 100%;
     height: 75vh;
     object-fit: cover;
-display: block;
+/* display: block; */
+ 
 }
 
 #search{
@@ -187,8 +190,8 @@ display: block;
     padding: 0 20px;
     display: none;
 position: absolute;
-    right: 60px;
-    top: 60%;
+    right: 15px;
+    top: 62%;
     transform: translateY(-50%);
 }
 .search-btn:hover{
@@ -202,7 +205,7 @@ position: absolute;
     font-size: 1.2rem;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 480px) {
     .banner{
         height: 600px;
         width: 455px;
@@ -222,11 +225,9 @@ position: absolute;
     }
     video{
         height: 100vh;
-        width: 100%;
-        position: relative;
-        top: 0;
-        left: 0;    
+        width: 400px;
         object-fit: cover;
+       
     }
     #search{
         width: 60%;
@@ -253,10 +254,11 @@ position: absolute;
         }
 
         .header h1 {
-            color: #2c3e50;
+            color: #008080;
             font-size: 3em;
-            margin-bottom: 10px;
+            margin-top: -70px;
             font-weight: 700;
+            display: block;
         }
 
         .header p {
@@ -603,7 +605,7 @@ position: absolute;
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
             .properties-grid {
                 grid-template-columns: 1fr;
             }
@@ -613,7 +615,7 @@ position: absolute;
             }
             
             .modal-content {
-                width: 95%;
+                width: 90%;
             }
         }
 
@@ -782,30 +784,30 @@ position: absolute;
 
     <header>
         <h1>Haven Gate</h1>
-        <img src="../../Assets/images/logo6.jpeg" alt="" class="hg">
+        <img src="../../Assets/images/logo-removebg-preview.png" alt="" class="hg">
 <nav class="navbars">
-    <a href="./index.html" class="link">Home</a>
+    <a href="../../index.html" class="link">Home</a>
     <a href="../../Assets/html/about.html" class="link">About</a>
     <a href="../../Assets/html/properties.html" class="link">Properties</a>
-    <a href="../../Assets/html/Contact.html" class="link">Contact</a>
-    <a href="../../Assets/html/Login.html" class="link">Login</a>
+    <a href="../../Assets/html/contact.html" class="link">Contact</a>
+    <a href="../../Assets/html/login.html" class="link">Login</a>
 
 </nav>
 
 <div class="icons">
 <span><i class="fas fa-bars"></i></span>
 </div>
-<div class="users">
-    <a href="./signup.html">
-    <p><i class="fas fa-user"></i></p></a>
-    
+   <div class="users">
+    <a href="../../Assets/html/signup.html"><i class="fas fa-user"></i></a>
 </div>
     </header>
     <!-- banner -->
     <main class="banner">
-        <video src="../../Assets/video/video3.mp4" autoplay muted loop></video>
+        <div class="banner-vid">
+            <video src="../../Assets/video/video3.mp4" autoplay muted loop></video>
+        </div>
         <div class="bannertext">
-            Get Your Homes, Investments And Landed Properties @ Haven's Gate <br> Affordable Price.
+            Get Your Homes, Investments And<br> Landed Properties @ Haven's Gate <br> Affordable Price.
 
         </div>
         <input type="search" name="search" id="search" placeholder="Search for properties...">
